@@ -1,4 +1,5 @@
-import { NYTimesArticle } from "./types"
+
+import { NYTimesArticle } from "../../types"
 import { NYTimesArticleCard } from "./NYTimesArticle"
 
 interface NYTimesArticleListProps {

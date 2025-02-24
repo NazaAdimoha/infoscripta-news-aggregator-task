@@ -1,4 +1,4 @@
-import { NewsAPIArticle } from "./types"
+import { NewsAPIArticle } from "../../types"
 import { NewsAPIArticleCard } from "./NewsAPIArticle"
 
 interface NewsAPIArticleListProps {

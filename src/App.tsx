@@ -9,7 +9,7 @@ import { getRateLimits } from "./services/api"
 import { NewsAPIArticleList } from "./components/NewsAPI/NewsAPIArticleList"
 import { GuardianArticleList } from "./components/Guardian/GuardianArticleList"
 import { NYTimesArticleList } from "./components/NYTimes/NYTimesArticleList"
-import { Badge, Button, Card, Group, Image, Text } from "@mantine/core"
+import { Card,Text, Loader } from "@mantine/core"
 
 function App() {
   const [search, setSearch] = useState("")
@@ -20,11 +20,16 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container w-1/2 mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 w-full md:w-3/4 lg:w-1/2">
         {/* Header */}
         <div className="flex flex-col items-center mb-8">
-          <h1 className="text-3xl font-bold mb-4">News Aggregator</h1>
-          <div className="w-full ">
+          <h1 className="text-sm font-medium md:text-2xl md:font-bold mb-6 text-center animate-fade-in">
+            News Aggregator
+            <span className="block text-xs font-normal mt-1 text-slate-500">
+              Your unified news dashboard
+            </span>
+          </h1>
+          <div className="w-full max-w-2xl">
             <SearchBar onSearch={(value) => {
               setSearch(value)
               setPage(1)
@@ -33,10 +38,10 @@ function App() {
         </div>
 
         {/* Filters and Rate Limits */}
-        <div className="max-w-2xl mx-auto mb-8">
-          <Card>
+        <div className="mx-auto mb-8 w-full max-w-2xl">
+          <Card className="animate-pop-in">
             <Card.Section p="md">
-              <div className="flex gap-8">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                 <div className="flex-1">
                   <Filters />
                 </div>
@@ -53,14 +58,14 @@ function App() {
         </div>
 
         {/* Articles */}
-        <main className="max-w-4xl mx-auto">
+        <main className="mx-auto w-full max-w-4xl">
           {isLoading ? (
-            <div className="flex justify-center items-center h-32">
-              Loading...
+            <div className="flex justify-center items-center h-32 animate-pulse">
+              <Loader size="lg" />
             </div>
           ) : isError ? (
-            <div className="text-center text-muted-foreground">
-              Error loading articles. Please try again.
+            <div className="text-center text-muted-foreground animate-shake">
+              ⚠️ Error loading articles. Please try again.
             </div>
           ) : (
             <div className="space-y-4">

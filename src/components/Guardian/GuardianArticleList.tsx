@@ -1,4 +1,4 @@
-import { GuardianArticle } from "./types"
+import { GuardianArticle } from "../../types"
 import { GuardianArticleCard } from "./GuardianArticle"
 
 interface GuardianArticleListProps {

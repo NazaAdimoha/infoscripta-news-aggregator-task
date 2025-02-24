@@ -70,6 +70,7 @@ export interface NewsAPISource {
   }
   
   export interface NYTimesArticle {
+    _id: string,
     abstract: string;
     web_url: string;
     snippet: string;
