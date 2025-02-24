@@ -46,7 +46,7 @@ function App() {
                   <Filters />
                 </div>
                 <div className="flex-1">
-                  <Text size="lg" fw={500} mb="md">API Rate Limits</Text>
+                  {/* <Text size="lg" fw={500} mb="md">API Rate Limits</Text> */}
                   {/* <RateLimitIndicator limits={Object.entries(rateLimits).map(([source, limit]) => ({
                     source: source as Source,
                     ...limit
