@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { APIResponse } from '../types/article';
+
 import { DateRange, Source } from '../store/useStore';
 
 const API_KEYS = {
@@ -14,7 +14,6 @@ const API_ENDPOINTS = {
   NYTimes: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
 };
 
-// Convert our date range to API-specific date formats
 const getDateParams = (dateRange: DateRange) => {
   const now = new Date();
   const getDate = (daysAgo: number) => {
@@ -45,7 +44,6 @@ const rateLimits = new Map<Source, RateLimit>();
 
 export const getRateLimits = () => Object.fromEntries(rateLimits);
 
-// Update fetchFromAPI function to track rate limits
 const updateRateLimit = (source: Source, headers: any) => {
   switch (source) {
     case 'NewsAPI':
@@ -54,7 +52,7 @@ const updateRateLimit = (source: Source, headers: any) => {
         total: parseInt(headers['x-api-calls-limit'] || '100')
       });
       break;
-    // Add other API rate limit header parsing
+    
   }
 };
 
@@ -63,12 +61,12 @@ const fetchFromAPI = async (
   keyword: string,
   dateRange: DateRange,
   page: number
-): Promise<APIResponse> => {
+): Promise<any> => {
   try {
     const dates = getDateParams(dateRange);
     const params = new URLSearchParams();
     
-    // Configure params based on the API
+    // Configured params based on the API response here
     switch (source) {
       case 'NewsAPI':
         params.append('q', keyword);

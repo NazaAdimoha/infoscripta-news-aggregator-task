@@ -9,8 +9,6 @@ export function Filters() {
   const { 
     selectedSources, 
     setSelectedSources,
-    selectedCategories,
-    setSelectedCategories,
     dateRange,
     setDateRange
   } = useStore()
@@ -43,7 +41,7 @@ export function Filters() {
         <Text size="sm" fw={500}>Date Range</Text>
         <Radio.Group
           value={dateRange as DateRange}
-          onChange={(value: DateRange) => setDateRange(value)}
+          onChange={(value) => setDateRange(value as DateRange)}
         >
           <div className="space-y-2">
             <Radio value="24h" label="Last 24 hours" />
