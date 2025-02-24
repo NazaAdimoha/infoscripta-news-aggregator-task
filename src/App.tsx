@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { RateLimitIndicator } from "./components/RateLimitIndicator"
-import { Source } from "./store/useStore"
+// import { RateLimitIndicator } from "./components/RateLimitIndicator" 
+// import { Source } from "./store/useStore"
 // import { ArticleCard } from "./components/ArticleCard"
 import { Filters } from "./components/Filters"
 import { SearchBar } from "./components/SearchBar"
 import { useArticles } from "./hooks/useArticles"
-import { getRateLimits } from "./services/api"
+// import { getRateLimits } from "./services/api"
 import { NewsAPIArticleList } from "./components/NewsAPI/NewsAPIArticleList"
 import { GuardianArticleList } from "./components/Guardian/GuardianArticleList"
 import { NYTimesArticleList } from "./components/NYTimes/NYTimesArticleList"
@@ -16,7 +16,7 @@ function App() {
   const [page, setPage] = useState(1)
   // const { articles, isLoading, isError } = useArticles(search, page)
   const { newsAPI, guardianAPI, nyTimesAPI, isLoading, isError } = useArticles(search, page)
-  const rateLimits = getRateLimits()
+  // const rateLimits = getRateLimits()
 
   return (
     <div className="min-h-screen bg-background">
@@ -47,10 +47,10 @@ function App() {
                 </div>
                 <div className="flex-1">
                   <Text size="lg" fw={500} mb="md">API Rate Limits</Text>
-                  <RateLimitIndicator limits={Object.entries(rateLimits).map(([source, limit]) => ({
+                  {/* <RateLimitIndicator limits={Object.entries(rateLimits).map(([source, limit]) => ({
                     source: source as Source,
                     ...limit
-                  }))} />
+                  }))} /> */}
                 </div>
               </div>
             </Card.Section>
