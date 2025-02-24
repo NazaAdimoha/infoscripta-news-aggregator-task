@@ -1,5 +1,5 @@
 import { Progress, Text } from "@mantine/core"
-import { useStore, Source } from "../store/useStore"
+import { Source } from "../store/useStore"
 
 interface RateLimit {
   source: Source
