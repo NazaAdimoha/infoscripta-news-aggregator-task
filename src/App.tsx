@@ -9,7 +9,7 @@ import { useArticles } from "./hooks/useArticles"
 import { NewsAPIArticleList } from "./components/NewsAPI/NewsAPIArticleList"
 import { GuardianArticleList } from "./components/Guardian/GuardianArticleList"
 import { NYTimesArticleList } from "./components/NYTimes/NYTimesArticleList"
-import { Card,Text, Loader } from "@mantine/core"
+import { Card, Loader } from "@mantine/core"
 
 function App() {
   const [search, setSearch] = useState("")
